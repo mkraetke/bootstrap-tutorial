@@ -5,10 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Mein Blog mit Bootstrap</title>
-        
         <!-- mein Stylesheet -->
         <link rel="stylesheet" href="css/myStylesheet.css">  
-
     </head>
     <body>
                 
@@ -22,7 +20,7 @@
                 </ul>
             </div>
         </nav>
-                
+
         <!-- Titel der Website -->
         <header>
             <div>
@@ -47,6 +45,7 @@
                         <li><a href="#static-containers">Layout mit Containern</a></li>
                         <li><a href="#fluid-containers">Responsives Grid-Layout</a></li>
                         <li><a href="#responsive-navigation">Responsive Navigation erstellen</a></li>
+                        <li><a href="#bootstrap-carousel">Carousel-Widget</a></li>
                     </ol>
                 </nav>
 
@@ -188,7 +187,7 @@
                     
                     <section>
                         <h2 id="responsive-navigation">Responsive Navigation erstellen</h2>
-                        <p>Aufklappbare Menüs kennt man bereits von vielen Webseiten. Das geht mit Bootstrap auch, erfordert im Vergleich zu den vorigen Beispielen jedoch deutlich mehr Schritte:</p>
+                        <p>Responsive Menüs kennt man bereits von vielen Mobil-Webseiten. Das geht mit Bootstrap auch, erfordert im Vergleich zu den vorigen Beispielen jedoch deutlich mehr Schritte:</p>
                         <ol>
                             <li>Das <code>nav</code>-Tag muss die Klassen <code>navbar</code>, <code>navbar-default</code> und <code>navbar-static-top</code> erhalten. Während die ersten beiden vor allem die Funktionalität der responsiven Navigation bereitstellen, sorgt letztere dafür, dass die Navigation immer an den oberen Bildschirmrand „geklebt“ wird.</li>
                             <li>Ein <code>&lt;div></code> mit der Klasse <code>container</code> sorgt dafür, dass die Menüpunkte auch entsprechende Abstände nach links und rechts aufweisen.</li>
@@ -224,6 +223,53 @@
 &lt;/nav></code></pre>
                         
                         
+                    </section>
+                    
+                    <section>
+                        <h2 id="bootstrap-carousel">Carousel-Widget</h2>
+                        <p>In diesem Beispiel verwenden wir Bootstrap um uns ein Carousel-Widget zu bauen. Damit kann sich der Leser dann wie in einer Galerie durch verschiedene Bilder klicken. </p>
+                        <p>Das folgende Code-Beispiel enthält schon alles, was man für das Carousel benötigt. Das <code>&lt;ol></code>-Tag mit der Klasse <code>carousel-indicators</code> beherbergt die kleinen Kreise, mit denen wir Slides direkt auswählen können. Der <code>&lt;div></code> mit der Klasse <code>carousel-inner</code> enthält den eigentlichen Inhalt. Jeder Slide steckt dann mit Legende nochmals in einem <code>&lt;div></code> mit der Klasse <code>item</code>. Diesen Bereich können wir dann z.B. mit einem Bild oder anderen Inhalten füllen.</p>
+                        <p>Wichtig: Das Attribut <code>id</code> des obersten <code>&lt;div></code> muss mit den <code>data-target</code> und <code>href</code>-Attributen übereinstimmen.  Die Klasse <code>active</code> gibt an, welcher Slide gerade hervorgehoben ist.</p>
+                        
+                        <pre><code>&lt;div <mark>id="carousel-beispiel"</mark> class="carousel slide" data-ride="carousel">
+    
+    &lt;!-- Kreise -->
+    &lt;ol class="carousel-indicators">
+        &lt;li data-target="<mark>#carousel-beispiel</mark>" data-slide-to="0" class="<mark>active</mark>">&lt;/li>
+        &lt;li data-target="#carousel-beispiel" data-slide-to="1">&lt;/li>
+    &lt;/ol>
+
+    &lt;!-- Der eigentliche Inhalt des Carousels -->
+    &lt;div class="carousel-inner" role="listbox">
+        
+        &lt;!-- Jeder slide steht in einem div mit der Klasse "item" -->
+        <mark>&lt;div class="item active">
+            &lt;img src="img/gradient-1.jpg"/>
+            &lt;div class="carousel-caption">
+                &lt;h1>Slide 1&lt;/h1>
+            &lt;/div>
+        &lt;/div></mark>
+        
+        &lt;div class="item">
+            &lt;img src="img/gradient-2.jpg"/>
+            &lt;div class="carousel-caption">
+                &lt;h1>Slide 2&lt;/h1>
+            &lt;/div>
+        &lt;/div>
+        
+    &lt;/div>
+
+    &lt;!-- Buttons für Vor- und Zurück -->  
+    &lt;a class="left carousel-control" href="<mark>#carousel-beispiel</mark>" role="button" data-slide="prev">
+        &lt;span class="glyphicon glyphicon-chevron-left" aria-hidden="true">&lt;/span>
+        &lt;span class="sr-only">Previous&lt;/span>
+    &lt;/a>
+    &lt;a class="right carousel-control" href="#carousel-beispiel" role="button" data-slide="next">
+        &lt;span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&lt;/span>
+        &lt;span class="sr-only">Next&lt;/span>
+    &lt;/a>
+&lt;/div></code></pre>
+                    
                     </section>
                 
                 </main>
@@ -266,6 +312,6 @@
                 <p>This work is licensed under The MIT license (MIT).<br/>Copyright (c) 2016 Martin Kraetke</p>
             </div>
         </footer>
-                
+        
     </body>
 </html>
