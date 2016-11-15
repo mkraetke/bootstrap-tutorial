@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mein Blog mit Bootstrap</title>
+        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+        <!-- Ein kleines Standard-Theme -->
+  <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"/>
+              <!-- mein Stylesheet -->
+        <link rel="stylesheet" href="css/myStylesheet.css">  
+
+  <!-- für eine bessere Ansicht auf mobilen Geräten -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+    </head>
+    <body>
+                
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+    
+        <div class="navbar-header">
+            <!-- der Button wird nur in der Mobilansicht angezeigt  -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        
+        <!-- die Einträge der Navigation  -->
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+        <!-- Titel der Website -->
+        <header class="jumbotron">
+            <div class="container text-center">
+                <h1>Bootstrap lernen</h1>
+                <p>Bootstrap ist eines der populärsten Web-Frameworks um responsive Webseiten zu entwickeln. Bootstrap sorgt dafür, dass die Webseite auf jedem Bildschirm gut aussieht, ob 4k-Fernseher oder Mobiltelefon.</p>
+                <a class="btn btn-primary" href="index.html" target="_blank" type="application/octet-stream">Diese Seite herunterladen <span class="glyphicon glyphicon-save" aria-hidden="true"></span></a>
+            </div>
+        </header>
+      
+      
+        
+        <!-- Hauptbereich der Website -->
+        <div class="main-content">
+            
+            <div class="row container-fluid">
+            
+                <nav class="left col-md-3">
+                    <h2>Inhalt</h2>
+                    <ol>
+                        <li><a href="#bootstrap-herunterladen">Bootstrap herunterladen</a></li>
+                        <li><a href="#bootstrap-einbinden">Bootstrap in die Webseite einbinden</a></li>
+                        <li><a href="#bootstrap-klassen">Bootstrap-CSS-Klassen anwenden</a></li>
+                        <li><a href="#responsive-gridlayout">Grid-Layout</a></li>
+                        <li><a href="#static-containers">Layout mit Containern</a></li>
+                        <li><a href="#fluid-containers">Responsives Grid-Layout</a></li>
+                        <li><a href="#responsive-navigation">Responsive Navigation erstellen</a></li>
+                        <li><a href="#bootstrap-carousel">Carousel-Widget</a></li>
+                    </ol>
+                </nav>
+
+                <main class="center col-md-6">
+                  
+                  <div id="carousel-beispiel" class="carousel slide" data-ride="carousel">
+    
+    <!-- Kreise -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-beispiel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-beispiel" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Der eigentliche Inhalt des Carousels -->
+    <div class="carousel-inner" role="listbox">
+        
+        <!-- Jeder slide steht in einem div mit der Klasse "item" -->
+        <div class="item active">
+            <img src="img/gradient-1.jpg"/>
+            <div class="carousel-caption">
+                <h1>Slide 1</h1>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="img/gradient-2.jpg"/>
+            <div class="carousel-caption">
+                <h1>Slide 2</h1>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Buttons für Vor- und Zurück -->  
+    <a class="left carousel-control" href="#carousel-beispiel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-beispiel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+                  
+                  
+                    <section>
+                        <h2 id="bootstrap-herunterladen">Bootstrap herunterladen</h2>
+                        <p>Als ersten Schritt laden wir Bootstrap <a href="http://getbootstrap.com/getting-started/">hier</a> herunter.</p>
+                        <p>Das heruntergeladene Zip-Archiv heißt <code>bootstrap-3.3.7-dist.zip</code> und wir entpacken es in das Verzeichnis wo <a href =".">diese Website</a> gespeichert ist.</p>
+                        <p>Nach dem Entpacken sollte die Ordnerstruktur so aussehen:</p>
+<pre>meineWebsite/
+├── bootstrap-3.3.7-dist/
+│   ├── css/            {Bootstrap stylesheets}
+│   │   ├── bootstrap.min.css
+│   │   ├── bootstrap-theme.min.css
+│   │   └── (...)
+│   ├── js/             {Bootstrap Skripte}
+│   │   ├── bootstrap.min.js
+│   │   └── (...)
+│   ├── fonts/          {Bootstrap Schriften}
+│   └── (...)
+├── css/
+│   └── myStylesheet.css
+└── index.html           {Webseite}
+</pre>
+                    </section>
+                    
+                    <section>
+                        <h2 id="bootstrap-einbinden">Bootstrap in die Webseite einbinden</h2>
+                        <p>Als zweiten Schritt binden wir die JavaScript- und CSS-Bibliotheken von Bootstrap ein. Damit wird Bootstrap beim Laden der Website auch automatisch geladen.</p>
+                        <p>Dafür platzieren wir zunächst die Links zu den CSS-Stylesheets in das <code>&lt;head></code>-Tag der Website.</p>
+                        <pre><code>&lt;head>
+  &lt;!--  (...)  -->
+  &lt;!-- Der Link auf das Bootstrap CSS (für die Basis-Formatierung) -->
+  <mark>&lt;link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/></mark>
+  &lt;!-- Ein kleines Standard-Theme -->
+  <mark>&lt;link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"/></mark>
+  &lt;!-- für eine bessere Ansicht auf mobilen Geräten -->
+  <mark>&lt;meta name="viewport" content="width=device-width, initial-scale=1"></mark>
+&lt;/head></code></pre>
+                        <p>Das JavaScript binden wir als ganz unten im HTML-Code der Website kurz vor dem Ende des <code>&lt;body></code>-Tags ein. Da der Web-Browser die Seite nacheinander einliest, wird sie etwas schneller geladen und angezeigt, wenn Skripte erst am Ende geladen werden. Wir brauchen außerdem das JavaScript-Framework <a href="http://jquery.com/" target="_blank">jQuery</a>, weil Teile von Bootstrap darauf basieren.</p>
+                        <pre><code>&lt;body/>
+  &lt;!--  (...)  -->
+  &lt;!-- jQuery JavaScript -->
+  <mark>&lt;script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">&lt;/script></mark>
+  &lt;!-- Bootstrap JavaScript -->
+  <mark>&lt;script src="bootstrap-3.3.7-dist/js/bootstrap.min.js">&lt;/script></mark>
+&lt;/body></code></pre>
+                        <p>Nach einem Aktualisieren der Website sollte sich ihr Stil etwas geändert haben, ansonsten hat etwas nicht funktioniert.</p>
+                    </section>
+
+                    <section>
+                        <h2 id="bootstrap-klassen">Bootstrap-CSS-Klassen anwenden</h2>
+                        <p>Bootstrap bietet vorgefertigte CSS-Klassen, die schon fertige Layoutelemente für viele Zwecke enthalten. Eine vollständige Übersicht gibt es <a href="http://getbootstrap.com/css/">hier</a>.</p>
+                        <p>Wir nehmen uns den Titel unserer Website vor und verschönern ihn mit Bootstrap. Dafür fügen wir dem <code>&lt;header></code>-Tag die Klasse <code>jumbotron</code> hinzu. Der <code>div</code> unter dem <code>header</code> erhält außerdem die Klassen <code>container</code> und <code>text-center</code>. Nach dem Aktualisieren der Seite dürfte der Titel der Website nun etwas prominenter und zentriert dargestellt sein.</p>
+                        <pre><code>&lt;header <mark>class="jumbotron"</mark>>
+  &lt;div <mark>class="container text-center"</mark>>
+    &lt;h1>Bootstrap lernen&lt;/h1>
+    &lt;p>Bootstrap ist eines der populärsten Web-Frameworks um responsive Webseiten zu entwickeln. Bootstrap 
+       sorgt dafür, dass die Webseite auf jedem Bildschirm gut aussieht, ob 4k-Fernseher oder Mobiltelefon.&lt;/p>
+  &lt;/div>
+&lt;/header></code></pre>
+                    </section>
+                
+                    <section>
+                        <h2 id="responsive-gridlayout">Responsives Grid-Layout</h2>
+                        <p>Ein Vorteil von Bootstrap ist, dass man schnell ein Layoutraster festlegen kann. Dafür unterteilt Bootstrap den Seitenbereich horizontal in zwölf Spalten.</p>
+
+                        <div class="row show-grid">
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                            <div class="col-md-1">.col-md-1</div>
+                        </div>
+                        <p>Um ein Raster anzulegen, muss man zunächst einen <code>&lt;div></code>-Tag mit der Klasse <code>row</code> anlegen und darin weitere <code>&lt;div></code>-Tags mit der Klasse <code>col-md-1</code>, wobei <em>1</em> in dem Falle für ein Zwölftel der Spaltenbreite steht.</p>
+                        <p>Auf diese Weise kann man beispielsweise zwei Spalten definieren, wovon die eine 8/12 und die andere 4/12 der Seitenbreite belegt.</p>
+                        <div class="row show-grid">
+                          <div class="col-md-8">Breite Spalte (8/12)</div>
+                          <div class="col-md-4">Schmale Spalte (4/12)</div>
+                        </div>
+                        <p>Und hier ist das Code-Beispiel dazu:</p>
+                        <pre><code>&lt;div <mark>class="row"</mark>>
+    &lt;div <mark>class="col-md-8"</mark>>Breite Spalte (8/12)&lt;/div>
+    &lt;div <mark>class="col-md-4"</mark>>Schmale Spalte (4/12)&lt;/div>
+&lt;/div></code></pre>
+                        <p>Um jetzt unsere einspaltige Website in eine dreispaltige zu verwandeln, ist nicht viel nötig. Wir suchen nach den Elementen mit den Klassen <code>left</code>, <code>center</code> und <code>right</code> und ergänzen dort wie im Beispiel unten angegeben <code>col-md-3</code> bzw. <code>col-md-6</code>. Zu guter letzt fügen wir im <code>&lt;div></code> eine Ebene darüber noch die Klasse <code>row</code> hinzu.</p>
+                        <pre><code>&lt;div <mark>class="row"</mark>>
+    &lt;nav class="left <mark>col-md-3</mark>">
+        &lt;!-- ... -->
+    &lt;/nav>
+    &lt;main class="center <mark>col-md-6</mark>">
+        &lt;!-- ... -->
+    &lt;/main>
+    &lt;div class="right <mark>col-md-3</mark>">
+        &lt;!-- ... -->
+    &lt;/div>                            
+&lt;/div></code></pre>    
+                    </section>
+                    
+                    <section>
+                        <h2 id="static-containers">Layout mit Containern</h2>
+                        <p>Gerade bei breiten Bildschirmen würde es gegen alle Regeln der Typografie sprechen, wenn Textzeilen von der einen Seite des Bildschirms bis zur anderen reichen würden. Auf einem schmalen Smartphone möchte man hingegen überhaupt keinen Platz mit Rändern verschwenden.</p>
+                        <p> Bootstrap regelt den Abstand automatisch mit der <code>container</code>-Klasse. Wird diese einem Element zugewiesen, wird je nach Bildschirmbreite nach links und rechts automatisch ein passender Abstand gesetzt. Dafür fügen wir dem <code>&lt;div></code> mit der Klasse <code>main-content</code> noch die Klasse <code>container</code> hinzu. Nach dem Aktualisieren der Seite dürften nun entsprechende Abstände nach links und rechts vorhanden sein. Wenn wir das Browserfenster verkleinern, dürften die Abstände zudem automatisch kleiner werden.</p>
+                        <pre><code>&lt;div class="row <mark>container</mark>">
+    &lt;nav class="left col-md-3">
+        &lt;!--  (...)  -->
+    &lt;/nav>
+    &lt;main class="center col-md-6">
+        &lt;!--  (...)  -->
+    &lt;/main>
+    &lt;div class="right col-md-3">
+        &lt;!--  (...)  -->
+    &lt;/div>                            
+&lt;/div></code></pre>
+                    </section>
+                    <section>
+                        <h2 id="fluid-containers">Responsives Grid-Layout</h2>
+                        <p>Auf schmalen Bildschirmen würde das dreispaltige Layout zuviel Platz verschwenden. Bootstrap kann die Spalten automatisch zu einer einspaltigen Mobilansicht auflösen. Dabei werden die Spalten einfach untereinander dargestellt. Um dieses Verhalten einzustellen, muss die Klasse <code>container-fluid</code> statt <code>container</code> bei dem <code>&lt;div></code> eingetragen werden.</p>
+                        <pre><code>&lt;div class="row <mark>container-fluid</mark>">
+    &lt;nav class="left col-md-3">
+        &lt;!--  (...)  -->
+    &lt;/nav>
+    &lt;main class="center col-md-6">
+        &lt;!--  (...)  -->
+    &lt;/main>
+    &lt;div class="right col-md-3">
+        &lt;!--  (...)  -->
+    &lt;/div>                            
+&lt;/div></code></pre>
+                        
+                    </section>
+                    
+                    <section>
+                        <h2 id="responsive-navigation">Responsive Navigation erstellen</h2>
+                        <p>Responsive Menüs kennt man bereits von vielen Mobil-Webseiten. Das geht mit Bootstrap auch, erfordert im Vergleich zu den vorigen Beispielen jedoch deutlich mehr Schritte:</p>
+                        <ol>
+                            <li>Das <code>nav</code>-Tag muss die Klassen <code>navbar</code>, <code>navbar-default</code> und <code>navbar-static-top</code> erhalten. Während die ersten beiden vor allem die Funktionalität der responsiven Navigation bereitstellen, sorgt letztere dafür, dass die Navigation immer an den oberen Bildschirmrand „geklebt“ wird.</li>
+                            <li>Ein <code>&lt;div></code> mit der Klasse <code>container</code> sorgt dafür, dass die Menüpunkte auch entsprechende Abstände nach links und rechts aufweisen.</li>
+                            <li>Der <code>&lt;div></code> mit der Klasse <code>navbar-header</code> muss samt Inhalt eingefügt werden. Dieser enthält den Button, der nur in der responsiven Ansicht erscheint.</li>
+                            <li>Zu guter letzt müssen der <code>&lt;div></code> und das <code>&lt;ul></code>-Tag noch die gekennzeichneten Attribute erhalten.</li>
+                        </ol>
+                        <p>In dem folgenden Beispiel ist alles hervorgehoben, was neu hinzukommt:</p>
+                        <pre><code>&lt;!-- Navigation -->
+&lt;nav <mark>class="navbar navbar-default navbar-static-top"</mark>>
+    <mark>&lt;div class="container"></mark>
+    
+        <mark>&lt;div class="navbar-header">
+            &lt;!-- der Button wird nur in der Mobilansicht angezeigt  -->
+            &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                &lt;span class="sr-only">Toggle navigation&lt;/span>
+                &lt;span class="icon-bar">&lt;/span>
+                &lt;span class="icon-bar">&lt;/span>
+                &lt;span class="icon-bar">&lt;/span>
+            &lt;/button>
+        &lt;/div></mark>
+        
+        &lt;!-- die Einträge der Navigation  -->
+        &lt;div <mark>id="navbar"</mark> <mark>class="navbar-collapse collapse"</mark>>
+            &lt;ul <mark>class="nav navbar-nav"</mark>>
+                &lt;li>&lt;a href="#">Home&lt;/a>&lt;/li>
+                &lt;li>&lt;a href="#about">Über mich&lt;/a>&lt;/li>
+                &lt;li>&lt;a href="#contact">Kontakt&lt;/a>&lt;/li>
+            &lt;/ul>
+        &lt;/div>
+        
+    <mark>&lt;/div></mark>
+&lt;/nav></code></pre>
+                        
+                        
+                    </section>
+                    
+                    <section>
+                        <h2 id="bootstrap-carousel">Carousel-Widget</h2>
+                        <p>In diesem Beispiel verwenden wir Bootstrap um uns ein Carousel-Widget zu bauen. Damit kann sich der Leser dann wie in einer Galerie durch verschiedene Bilder klicken. </p>
+                        <p>Das folgende Code-Beispiel enthält schon alles, was man für das Carousel benötigt. Das <code>&lt;ol></code>-Tag mit der Klasse <code>carousel-indicators</code> beherbergt die kleinen Kreise, mit denen wir Slides direkt auswählen können. Der <code>&lt;div></code> mit der Klasse <code>carousel-inner</code> enthält den eigentlichen Inhalt. Jeder Slide steckt dann mit Legende nochmals in einem <code>&lt;div></code> mit der Klasse <code>item</code>. Diesen Bereich können wir dann z.B. mit einem Bild oder anderen Inhalten füllen.</p>
+                        <p>Wichtig: Das Attribut <code>id</code> des obersten <code>&lt;div></code> muss mit den <code>data-target</code> und <code>href</code>-Attributen übereinstimmen.  Die Klasse <code>active</code> gibt an, welcher Slide gerade hervorgehoben ist.</p>
+                        
+                        <pre><code>&lt;div <mark>id="carousel-beispiel"</mark> class="carousel slide" data-ride="carousel">
+    
+    &lt;!-- Kreise -->
+    &lt;ol class="carousel-indicators">
+        &lt;li data-target="<mark>#carousel-beispiel</mark>" data-slide-to="0" class="<mark>active</mark>">&lt;/li>
+        &lt;li data-target="#carousel-beispiel" data-slide-to="1">&lt;/li>
+    &lt;/ol>
+
+    &lt;!-- Der eigentliche Inhalt des Carousels -->
+    &lt;div class="carousel-inner" role="listbox">
+        
+        &lt;!-- Jeder slide steht in einem div mit der Klasse "item" -->
+        <mark>&lt;div class="item active">
+            &lt;img src="img/gradient-1.jpg"/>
+            &lt;div class="carousel-caption">
+                &lt;h1>Slide 1&lt;/h1>
+            &lt;/div>
+        &lt;/div></mark>
+        
+        &lt;div class="item">
+            &lt;img src="img/gradient-2.jpg"/>
+            &lt;div class="carousel-caption">
+                &lt;h1>Slide 2&lt;/h1>
+            &lt;/div>
+        &lt;/div>
+        
+    &lt;/div>
+
+    &lt;!-- Buttons für Vor- und Zurück -->  
+    &lt;a class="left carousel-control" href="<mark>#carousel-beispiel</mark>" role="button" data-slide="prev">
+        &lt;span class="glyphicon glyphicon-chevron-left" aria-hidden="true">&lt;/span>
+        &lt;span class="sr-only">Previous&lt;/span>
+    &lt;/a>
+    &lt;a class="right carousel-control" href="#carousel-beispiel" role="button" data-slide="next">
+        &lt;span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&lt;/span>
+        &lt;span class="sr-only">Next&lt;/span>
+    &lt;/a>
+&lt;/div></code></pre>
+                    
+                    </section>
+                    <div>
+                        <h2 id="about">Über mich</h2>
+                        <p>Ich bin Jahrgang 1982, arbeite bei le-tex offiziell als Lead Content Engineer und inoffiziell als Deputy Chief Officer of Bullshitting und entwickle dort mit unseren anderen EntwicklerInnen an unseren Open-Source-Anwendungen für Verlage mit. Ich pflege einen kleinen Publishing-Tech-Blog namens <a href="http://www.xporc.net">XPorc</a> und schreibe hin- und wieder kleinere Dinge auf <a href="https://twitter.com/mkraetke">Twitter</a>.</p>
+                    </div>
+                    <div>
+                        <h2 id="contact">Kontakt</h2>
+                        <p>Ach das hab ich eigentlich schon jetzt einen Abschnitt vorher gesagt. Egal, wir brauchen den Punkt, damit die Navigation sich nicht so dürftig ausnimmt.</p>
+                    </div>
+                
+                </main>
+            
+                <div class="right col-md-3">
+                    <div class="follow-me">
+                        <h3>Follow me</h3>
+                        <ul>
+                            <li><a href="http://getbootstrap.com/">Web</a></li>
+                            <li><a href="https://twitter.com/getbootstrap">Twitter</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Blogroll</h3>
+                        <ul>
+                            <li><a href="http://codegirls.de">Code Girls</a></li>
+                            <li><a href="http://iwasa90skid.blogspot.de">I was a 90s kid</a></li>
+                            <li><a href="http://xporc.net/">xporc</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        
+        <!-- Fussbereich der Website -->
+        
+        <footer class="footer row">
+          <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <p>This work is licensed under The MIT license (MIT).<br/>Copyright (c) 2016 Martin Kraetke</p>
+            </div>
+          <div class="col-md-3"></div>
+        </footer>
+          <!-- jQuery JavaScript -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
